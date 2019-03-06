@@ -1,0 +1,169 @@
+<odoo>
+
+    <data>
+
+
+        <!--ESTUDIANTE-->
+        <record model="ir.actions.act_window" id="action_estudiante">
+            <field name="name">estudiante</field>
+            <field name="res_model">escuelas.estudiante</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model='ir.ui.view' id='estudiante_tree_view'>
+            <field name="name">estudiante.tree</field>
+            <field name="model">escuelas.estudiante</field>
+            <field name="arch" type="xml">
+                <tree string="estudiante Tree">
+                    <field name="name"/>
+                    <field name="apellidos"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model='ir.ui.view' id='estudiante_form_view'>
+            <field name="name">estudiante.form</field>
+            <field name="model">escuelas.estudiante</field>
+            <field name="arch" type="xml">
+                <form string="estudiante form">
+                    <group>
+                        <field name="name"/>
+                        <field name="apellidos"/>
+                        <field name="profesor_id"/>
+                        <field name="colegio_id"/>
+                    </group>
+                </form>    
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="estudiante_search_view">
+            <field name="name">estudiante.search</field>
+            <field name="model">escuelas.estudiante</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="apellidos"/>
+                </search>
+            </field>
+        </record>
+
+
+        <!--COLEGIO-->
+        <record model="ir.actions.act_window" id="action_colegio">
+            <field name="name">colegio</field>
+            <field name="res_model">escuelas.colegio</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model='ir.ui.view' id='colegio_tree_view'>
+            <field name="name">colegio.tree</field>
+            <field name="model">escuelas.colegio</field>
+            <field name="arch" type="xml">
+                <tree string="colegio Tree">
+                    <field name="name"/>
+                    <field name="direccion"/>
+                    <field name="tipo"/>
+                    <field name="estudiante_ids"/>
+                    <field name="profesor_ids"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model='ir.ui.view' id='colegio_form_view'>
+            <field name="name">colegio.form</field>
+            <field name="model">escuelas.colegio</field>
+            <field name="arch" type="xml">
+                <form string="colegio Form">
+                    <group>
+                        <field name="name"/>
+                        <field name="direccion"/>
+                        <field name="tipo"/>
+                        <field name="estudiante_ids"/>
+                        <field name="profesor_ids"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="colegio_search_view">
+            <field name="name">colegio.search</field>
+            <field name="model">escuelas.colegio</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="direccion"/>
+                    <field name="tipo"/>
+                </search>
+            </field>
+        </record>
+
+
+        <!--PROFESOR-->
+        <record model="ir.actions.act_window" id="action_profesor">
+            <field name="name">profesor</field>
+            <field name="res_model">escuelas.profesor</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model='ir.ui.view' id='profesor_tree_view'>
+            <field name="name">profesor.tree</field>
+            <field name="model">escuelas.profesor</field>
+            <field name="arch" type="xml">
+                <tree string="profesor Tree">
+                    <field name="name"/>
+                    <field name="apellidos"/>
+                    <field name="estudiante_ids"/>
+                    <field name="colegio_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model='ir.ui.view' id='profesor_form_view'>
+            <field name="name">profesor.form</field>
+            <field name="model">escuelas.profesor</field>
+            <field name="arch" type="xml">
+                <form string="profesor Form">
+                    <group>
+                        <field name="name"/>
+                        <field name="apellidos"/>
+                        <field name="estudiante_ids"/>
+                        <field name="colegio_id"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="profesor_search_view">
+            <field name="name">profesor.search</field>
+            <field name="model">escuelas.profesor</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="apellidos"/>
+                </search>
+            </field>
+        </record>
+
+      
+
+
+        <!-- Top menu item -->
+
+        <menuitem name="Escuelas" id="menu_root"/>
+
+        <!-- menu categories -->
+
+        <menuitem name="Menu" id="menu" parent="menu_root"/>
+
+        <!-- actions -->
+
+        <menuitem name="Estudiantes" id="menu_estudiante" parent="menu" action="action_estudiante"/>
+        <menuitem name="Colegio" id="menu_colegio" parent="menu" action="action_colegio"/>
+        <menuitem name="Profesor" id="menu_profesor" parent="menu" action="action_profesor"/>
+
+    </data>
+
+</odoo>
